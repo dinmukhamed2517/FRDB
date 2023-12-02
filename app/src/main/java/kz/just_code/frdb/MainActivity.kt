@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
             binding.savedData.text = it.toString()
         }
 
+        userDao.updateLiveData.observe(this){
+            binding.savedData.text = it.toString()
+        }
         binding.saveBtn.setOnClickListener {
             userDao.saveData(getUser())
         }
